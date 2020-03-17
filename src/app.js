@@ -3,11 +3,10 @@ const path = require("path");
 const hbs = require("hbs");
 const geocode= require('./utils/geocode')
 const forecast= require('./utils/forecast')
-
 const viewPath = path.join(__dirname,'../templates/views');
 const partialsPath  = path.join(__dirname,'../templates/partials')
 const publicDirectoryPath =path.join(__dirname,'../public')
-
+const port = process.env.PORT || 3000;
 const app =express();
 
 app.set('view engine','hbs');
@@ -72,7 +71,7 @@ app.get('/help/*',(req,res)=>{
         name:"help article not found"
     })
 })
-app.listen(3000)
+app.listen(port);
 
 
 
